@@ -1,0 +1,18 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Claude session data
+.claude/
+
+# Node
+node_modules/
+cogence-web/dist/
+cogence-web/.env*
+
+# Temp files
+hero.png
+
+# Large source files (available separately)
+*.pdf

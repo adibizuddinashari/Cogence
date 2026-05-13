@@ -1,0 +1,15 @@
+import { cn } from "@/lib/utils"
+
+function Badge({ className, ...props }) {
+  return (
+    <span
+      className={cn(
+        "inline-flex items-center rounded-full border border-white/50 bg-white/90 px-3 py-1 text-xs font-semibold tracking-wide text-primary",
+        className
+      )}
+      {...props}
+    />
+  )
+}
+
+export { Badge }
