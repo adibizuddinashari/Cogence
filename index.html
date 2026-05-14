@@ -930,6 +930,121 @@ section { padding: 100px 48px; }
 }
 .why-card strong { color: var(--navy); font-weight: 600; }
 
+/* ── TRIPTYCH (second half — visual bridge before CTA) ── */
+.triptych-section {
+  padding: 0;
+  background: var(--navy);
+  overflow: hidden;
+}
+.triptych-section .triptych-intro {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 72px 48px 40px;
+  text-align: center;
+}
+.triptych-section .triptych-intro .section-label {
+  margin-bottom: 12px;
+}
+.triptych-section .triptych-intro .section-title {
+  margin-bottom: 12px;
+  color: var(--white);
+}
+.triptych-section .triptych-intro .section-desc {
+  margin: 0 auto;
+  color: rgba(255,255,255,0.62);
+  max-width: 560px;
+}
+.triptych {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  min-height: 420px;
+}
+.triptych-panel {
+  position: relative;
+  min-height: 380px;
+  overflow: hidden;
+  isolation: isolate;
+}
+.triptych-panel img {
+  width: 100%;
+  height: 100%;
+  min-height: 380px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.7s ease;
+}
+.triptych-panel:hover img { transform: scale(1.06); }
+.triptych-panel::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(11, 29, 58, 0.92) 0%,
+    rgba(11, 29, 58, 0.45) 45%,
+    rgba(11, 29, 58, 0.2) 100%
+  );
+  z-index: 1;
+  pointer-events: none;
+}
+.triptych-panel:nth-child(2)::after {
+  background: linear-gradient(
+    to top,
+    rgba(11, 29, 58, 0.88) 0%,
+    rgba(30, 63, 110, 0.4) 50%,
+    rgba(11, 29, 58, 0.25) 100%
+  );
+}
+.triptych-divider {
+  position: absolute;
+  top: 12%;
+  bottom: 12%;
+  right: 0;
+  width: 1px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(255,255,255,0.22) 20%,
+    rgba(255,255,255,0.22) 80%,
+    transparent
+  );
+  z-index: 3;
+  pointer-events: none;
+}
+.triptych-panel:last-child .triptych-divider { display: none; }
+.triptych-panel-inner {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 36px 32px 40px;
+}
+.triptych-num {
+  font-family: var(--font-display);
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+.triptych-panel h3 {
+  font-family: var(--font-display);
+  font-size: clamp(22px, 2.4vw, 28px);
+  color: var(--white);
+  line-height: 1.2;
+  margin-bottom: 10px;
+}
+.triptych-panel p {
+  font-size: 14px;
+  line-height: 1.65;
+  color: rgba(255,255,255,0.72);
+  margin: 0;
+  max-width: 320px;
+}
+
 /* ── CTA BANNER ── */
 .cta-banner {
   position: relative;
@@ -1093,6 +1208,13 @@ footer p { font-size: 13px; color: rgba(255,255,255,0.45); }
   .contact-grid { grid-template-columns: 1fr; }
   .cta-banner { padding: 80px 24px; }
   footer { padding: 32px 24px; flex-direction: column; text-align: center; }
+  .triptych { grid-template-columns: 1fr; min-height: 0; }
+  .triptych-panel { min-height: 320px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .triptych-panel:last-child { border-bottom: none; }
+  .triptych-panel img { min-height: 320px; }
+  .triptych-divider { display: none; }
+  .triptych-section .triptych-intro { padding: 56px 24px 28px; }
+  .triptych-panel-inner { padding: 28px 24px 32px; }
 }
 
 /* ── TWEAKS WIRING ── */
@@ -1517,6 +1639,43 @@ body[data-emphasis="amplified"] .services-credential-banner {
       </div>
 
     </div>
+  </div>
+</section>
+
+<!-- TRIPTYCH -->
+<section class="triptych-section" id="triptych" aria-labelledby="triptych-heading">
+  <div class="triptych-intro">
+    <div class="section-label reveal">How we work with you</div>
+    <h2 class="section-title reveal" id="triptych-heading">From classroom to audit room to shop floor</h2>
+    <p class="section-desc reveal">Three lenses — training, compliance, and hands-on implementation — so standards translate into lasting capability.</p>
+  </div>
+  <div class="triptych">
+    <article class="triptych-panel reveal">
+      <span class="triptych-divider" aria-hidden="true"></span>
+      <img src="https://picsum.photos/id/431/800/600" alt="" loading="lazy" width="800" height="600">
+      <div class="triptych-panel-inner">
+        <span class="triptych-num">01 — Training</span>
+        <h3>Build capability your teams keep</h3>
+        <p>HRDCorp-claimable workshops on ISO 13485, MDR, FDA QMSR, validation, and quality tools — designed for retention and real application.</p>
+      </div>
+    </article>
+    <article class="triptych-panel reveal">
+      <span class="triptych-divider" aria-hidden="true"></span>
+      <img src="https://picsum.photos/id/1060/800/600" alt="" loading="lazy" width="800" height="600">
+      <div class="triptych-panel-inner">
+        <span class="triptych-num">02 — Compliance</span>
+        <h3>See gaps before regulators do</h3>
+        <p>Gap assessments, internal audit support, and corrective-action guidance aligned to your QMS and the standards that matter to your market.</p>
+      </div>
+    </article>
+    <article class="triptych-panel reveal">
+      <img src="https://picsum.photos/id/20/800/600" alt="" loading="lazy" width="800" height="600">
+      <div class="triptych-panel-inner">
+        <span class="triptych-num">03 — Implementation</span>
+        <h3>Make the system work in operations</h3>
+        <p>Technical support for risk management, process validation, and QMS improvement — so documentation becomes behaviour on the floor.</p>
+      </div>
+    </article>
   </div>
 </section>
 
